@@ -1,0 +1,28 @@
+{
+  "name": "masawada-camera",
+  "version": "1.0.0",
+  "repository": "https://github.com/pastak/masawada-camera.git",
+  "author": "pastak <pasta0915@gmail.com>",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "dependencies": {
+    "@types/eventemitter2": "^4.1.0",
+    "@types/react": "^16.7.13",
+    "@types/react-dom": "^16.0.11",
+    "awesome-typescript-loader": "^5.2.1",
+    "bowser": "^1.9.4",
+    "eventemitter2": "^5.0.1",
+    "konva": "^2.5.1",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-konva": "^16.6.31",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.2.1",
+    "webpack": "^4.27.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  }
+}

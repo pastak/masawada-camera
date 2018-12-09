@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8" />
+      <link rel="icon" href="/static/icon.png" type="image/png" />
+      <title>masawada camera</title>
+      <link rel="manifest" href="/static/manifest.json">
+      <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .imageList img {
+            max-height: 20vh;
+        }
+        .shutter-button-wrapper {
+            bottom: 40vh;
+            width: 100vw;
+            position: absolute;
+            left: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .shutter-button-wrapper input {
+            color: white;
+            background: rgba(0, 0, 0, 0);
+            font-size: 6vh;
+            border: none;
+        }
+        .help-button {
+            padding-left: 5vw;
+        }
+        .clear-button {
+            padding-right: 5vw;
+        }
+        .capture-button.waiting {
+            color: red;
+        }
+        #camera video {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .konvajs-content {
+            position: absolute !important;
+        }
+        #camera {
+            height: 60vh;
+            width: 100vw;
+        }
+        .imageList {
+            padding-top: 1vh;
+            height: 20vh;
+            width: 100vw;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        .imageList img {
+            float: left;
+            margin-right: 3px;
+        }
+        .imageList div {
+            width: 10000vw;
+        }
+        #stamps {
+            padding-top: 1vh;
+            clear: both;
+            height: 18vh;
+            width: 100vw;
+            overflow-x: scroll;
+            overflow-y: hidden;
+        }
+        #stamps div {
+            width: 10000vw;
+        }
+        #stamps img {
+            float: left;
+            max-height: 18vh;
+            min-height: 18vh;
+            padding: 2vh 0;
+        }
+        .help-wrapper {
+            height: 100vh;
+            display: block;
+            position: absolute;
+            width: 100vw;
+            background: wheat;
+            z-index: 10000;
+            font-size: 3vw;
+            overflow-y: scroll;
+        }
+
+        .help-wrapper p {
+            margin: 0 4vw;
+        }
+
+        .help-wrapper a {
+            color: #0a30ff;
+        }
+
+        .help-wrapper h1 {
+            font-size: 9vw;
+            text-align: center;
+            margin: 0.4em 0;
+        }
+
+        .help-wrapper h2 {
+            font-size: 5vw;
+            text-align: center;
+            margin: 0.4em 0;
+        }
+
+        .help-wrapper button {
+            font-size: 10vw;
+            background: rgb(216, 216, 216);
+        }
+
+      </style>
+  </head>
+  <body>
+      <main></main>
+      <script src="./dist/bundle.js"></script>
+  </body>
+</html>
