@@ -13,13 +13,15 @@ export class App extends React.Component<Props, State> {
   constructor (props: Props) {
     super(props);
     this.state = {
-      showHelp: false,
+      showHelp: true,
       showAddHS: false
     }
   }
 
   componentDidMount () {
-    if (!localStorage.getItem('visited')) {
+    if (localStorage.getItem('visited')) {
+      return this.setState({showHelp: false})
+    } else {
       try {
         localStorage.setItem('visited', '1');
       } catch (e) {}
