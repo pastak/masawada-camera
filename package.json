@@ -5,7 +5,8 @@
   "author": "pastak <pasta0915@gmail.com>",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "production": "webpack --mode=production"
   },
   "dependencies": {
     "@types/eventemitter2": "^4.1.0",

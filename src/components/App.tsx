@@ -46,6 +46,11 @@ export class App extends React.Component<Props, State> {
     this.state.showHelp ?
     (<div className='help-wrapper'>
         <h1>masawada camera</h1>
+        <div style={{textAlign: 'center'}}>
+          <img src='/static/icon.png' style={{
+            maxWidth: '30vw'
+          }} />
+        </div>
         <p>
           @masawadaと一緒にどこでも写真を撮ろう!
         </p>
