@@ -22,9 +22,6 @@ export class App extends React.Component<Props, State> {
     if (localStorage.getItem('visited')) {
       return this.setState({showHelp: false})
     } else {
-      try {
-        localStorage.setItem('visited', '1');
-      } catch (e) {}
       this.showHelp();
     }
     window.addEventListener('beforeinstallprompt', (event) => {
@@ -78,7 +75,12 @@ export class App extends React.Component<Props, State> {
           }？
         </p>
         <p style={{textAlign: 'center'}}>
-          <button onClick={() => this.setState({showHelp: false})}>カメラを開く</button>
+          <button onClick={() => {
+            this.setState({showHelp: false})
+            try {
+              localStorage.setItem('visited', '1');
+            } catch (e) {}
+          }}>カメラを開く</button>
         </p>
         <p>
           推奨ハッシュタグ: <a href='https://twitter.com/search?f=tweets&q=%23masawada_camera' target='_blank'>#masawada_camera</a><br />
