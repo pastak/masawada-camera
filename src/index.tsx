@@ -4,11 +4,13 @@ import * as ReactDOM from "react-dom";
 import { App } from "./components/App";
 
 const masawadaImages = [
-  'masawada-without-tea.png',
+  'masawada-icon.jpeg',
   'masawada-smaphone.png',
+  'down-masawada.png',
   'masawada-smart.png',
   'masawada-water.png',
-  'masawada-icon.jpeg'
+  'masawada-good.png',
+  'masawada-without-tea.png'
 ];
 
 if (navigator.serviceWorker) {

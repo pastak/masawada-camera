@@ -60,7 +60,7 @@ export class App extends React.Component<Props, State> {
         </p>
         <h2>写真を撮る</h2>
         <p>
-          真ん中の■ボタンを押すと3秒後に写真が撮れます
+          真ん中の■ボタンを押すと写真が撮れます
         </p>
         <h2>保存する</h2>
         <p>

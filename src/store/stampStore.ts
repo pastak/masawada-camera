@@ -1,7 +1,7 @@
 import {EventEmitter2 as EventEmitter} from 'eventemitter2';
 
 class StampStore extends EventEmitter {
-  stamps: string[]
+  stamps: [string, number][]
   
   constructor () {
     super();
@@ -13,7 +13,7 @@ class StampStore extends EventEmitter {
   }
 
   addStamp (src: string) {
-    this.stamps.push(src);
+    this.stamps.push([src, Date.now()]);
     this.emit('update')
   }
 

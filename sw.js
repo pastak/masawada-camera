@@ -9,6 +9,7 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (/json$/.test(event.request.url)) return;
   if (location.hostname === 'localhost' && navigator.onLine) return;
+  if (/ngrok\.io$/.test(location.hostname)) return;
       
   event.respondWith(
     (async () => {

@@ -27,7 +27,7 @@
         .shutter-button-wrapper input {
             color: white;
             background: rgba(0, 0, 0, 0);
-            font-size: 6vh;
+            font-size: 4vh;
             border: none;
         }
         .help-button {
@@ -36,6 +36,17 @@
         .clear-button {
             padding-right: 5vw;
         }
+        .shutter-button-wrapper input.capture-button {
+            font-size: 6vh;
+            border-radius: 5vh;
+            border: 2px solid white;
+            width: 10vh;
+            height: 10vh;
+            margin-bottom: 10px;
+        }
+        .shutter-button-wrapper input:focus {
+            outline: none;
+        }
         .capture-button.waiting {
             color: red;
         }
@@ -43,8 +54,8 @@
             position: absolute;
             width: 1px;
             height: 1px;
-            top: 0;
-            left: 0;
+            top: 10px;
+            left: 10px;
             z-index: 1;
         }
         .konvajs-content {
@@ -61,7 +72,7 @@
             overflow-x: scroll;
             overflow-y: hidden;
         }
-        .imageList img {
+        .imageList a {
             float: left;
             margin-right: 3px;
         }

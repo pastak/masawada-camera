@@ -40,8 +40,8 @@ export class Capture extends React.Component<Props, State> {
 
   readyForCapture () {
     if (this.state.timer) return;
-    this.captureTimer(3);
     stampStore.readyForCapture()
+    requestAnimationFrame(() => requestAnimationFrame(() => this.captureTimer(0)));
   }
 
   captureTimer (timer: number) {
@@ -69,14 +69,14 @@ export class Capture extends React.Component<Props, State> {
             this.state.timer ?
               this.state.timer :
               '■'
-          } className='capture-button'
+          } className={`capture-button${this.state.timer ? '' : ' waiting'}`}
           />
           <input type='button' value='Reset' className='clear-button' onClick={this.clear} />
         </div>
         <div className='imageList'>
           <div>
             {
-              this.state.imageData.map(data => <img src={data} />)
+              this.state.imageData.map(data => <a key={data.substr(-20)} href={data}><img src={data} /></a>)
             }
           </div>
         </div>

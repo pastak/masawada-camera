@@ -10,6 +10,7 @@ export const MasawadaStamps =  (props: Props) => {
     <div>
       {
         props.images.map(imgSrc => <img
+          key={imgSrc}
           onClick={() => stampStore.addStamp('/static/images/' + imgSrc)}
           src={'/static/images/' + imgSrc} />)
       }

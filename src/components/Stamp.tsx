@@ -34,7 +34,7 @@ class Handler extends React.Component<HandlerProps> {
   render() {
     return (
       <Transformer
-        anchorSize={browser.mobile ? 25 : 10}
+        anchorSize={browser.mobile ? 40 : 15}
         ref={node => {
           this.transformer = node;
         }}
