@@ -33,7 +33,8 @@ if (navigator.serviceWorker) {
     c.addAll([
       ...masawadaImages.map(a => '/static/images/' + a),
       '/',
-      '/dist/bundle.js'
+      '/dist/bundle.js',
+      '/static/icon.png'
     ])
   })()
 } else {
