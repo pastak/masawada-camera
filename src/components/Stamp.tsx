@@ -67,9 +67,12 @@ export class Stamp extends React.Component<Props, State> {
   }
 
   render () {
+    const defaultHeight = window.innerHeight * 0.35;
     return (
       <>
         <Image name={this.name} image={this.props.image} draggable
+          height={defaultHeight}
+          width={this.props.image.naturalWidth * defaultHeight / this.props.image.naturalHeight}
           onClick={ () => this.selected()}
           onTouchStart={() => this.selected()}/>
         {
