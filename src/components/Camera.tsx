@@ -65,10 +65,11 @@ export class Camera extends React.Component<Props, State> {
       if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
         audio:false,
         video: {
-          width: { ideal: 1280 },
-          height: { ideal: 1024 },
+          width: { ideal: 1080 },
+          height: { ideal: 1920 },
+          aspectRatio: { ideal: 0.5625 },
           facingMode: {
-            exact: 'environment'
+            ideal: 'environment'
           }
         }
       })
@@ -98,9 +99,12 @@ export class Camera extends React.Component<Props, State> {
         width: this.videoElement.videoWidth,
         height: this.videoElement.videoHeight
       }
+
+      console.log(videoInputRect)
+
       let videoWidth = Math.max(
-        videoInputRect.width,
-        canvasWidth
+        // videoInputRect.width,
+        canvasWidth * devicePixelRatio
       );
 
       const drawImageArgs: [
@@ -111,8 +115,8 @@ export class Camera extends React.Component<Props, State> {
       ] = [
         0, 0,
         videoInputRect.width, videoInputRect.height,
-        Math.floor((canvasWidth - videoWidth) / 2)  * devicePixelRatio, 0,
-        Math.floor(videoWidth * devicePixelRatio), Math.floor(videoInputRect.height * videoWidth * devicePixelRatio / videoInputRect.width)
+        0, 0,
+        Math.floor(videoWidth), Math.floor(videoInputRect.height * videoWidth / videoInputRect.width)
       ];
       let ctx = this.canvasElement.getContext('2d');
       const renderingCanvas = () => requestAnimationFrame(() => {
