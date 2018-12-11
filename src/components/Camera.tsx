@@ -83,14 +83,16 @@ export class Camera extends React.Component<Props, State> {
       }
     }
     if (!this.stream) return alert('カメラが有効になりませんでした');
-    let cameraWidth: number, cameraHeight: number;
+    let canvasWidth: number, canvasHeight: number;
     this.videoElement.addEventListener('loadedmetadata', () => {
       if (this.state.setTimer) return;
-      cameraHeight = window.innerHeight * 0.6;
-      cameraWidth = window.innerWidth;
+      canvasHeight = window.innerHeight * 0.6;
+      canvasWidth = window.innerWidth;
       
-      this.canvasElement.width = cameraWidth;
-      this.canvasElement.height = cameraHeight;
+      this.canvasElement.width = canvasWidth * devicePixelRatio;
+      this.canvasElement.height = canvasHeight * devicePixelRatio;
+      this.canvasElement.style.width = canvasWidth + 'px';
+      this.canvasElement.style.height = canvasHeight + 'px';
       
       let videoInputRect = {
         width: this.videoElement.videoWidth,
@@ -98,7 +100,7 @@ export class Camera extends React.Component<Props, State> {
       }
       let videoWidth = Math.max(
         videoInputRect.width,
-        cameraWidth
+        canvasWidth
       );
 
       const drawImageArgs: [
@@ -109,8 +111,8 @@ export class Camera extends React.Component<Props, State> {
       ] = [
         0, 0,
         videoInputRect.width, videoInputRect.height,
-        Math.floor((cameraWidth - videoWidth) / 2), 0,
-        Math.floor(videoWidth), Math.floor(videoInputRect.height * videoWidth / videoInputRect.width)
+        Math.floor((canvasWidth - videoWidth) / 2)  * devicePixelRatio, 0,
+        Math.floor(videoWidth * devicePixelRatio), Math.floor(videoInputRect.height * videoWidth * devicePixelRatio / videoInputRect.width)
       ];
       let ctx = this.canvasElement.getContext('2d');
       const renderingCanvas = () => requestAnimationFrame(() => {
@@ -122,10 +124,11 @@ export class Camera extends React.Component<Props, State> {
       renderingCanvas();
       this.setState({
         setTimer: true,
-        width: cameraWidth,
-        height: cameraHeight
+        width: canvasWidth,
+        height: canvasHeight
       });
     })
+    console.log(this.stream)
     this.videoElement.srcObject = this.stream;
   }
 
