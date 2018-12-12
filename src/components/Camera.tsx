@@ -74,17 +74,31 @@ export class Camera extends React.Component<Props, State> {
         }
       })
     } catch (e) {
-        try {
-          if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
-            audio:false,
-            video: {
-              facingMode: {
-                ideal: 'environment'
-              }
-            }
-          })
-        } catch (e) {}
+        console.error(1, e)
     }
+    try {
+      if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
+        audio:false,
+        video: {
+          width: { ideal: 1280 },
+          facingMode: {
+            ideal: 'environment'
+          }
+        }
+      })
+    } catch (e) {console.error(2, e)}
+    try {
+      if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
+        audio:false,
+        video: {
+          width: { ideal: 1280 },
+          height: { ideal: 1024 },
+          facingMode: {
+            ideal: 'environment'
+          }
+        }
+      })
+    } catch (e) {console.error(3, e)}
     if (!this.stream) return alert('カメラが有効になりませんでした');
     let canvasWidth: number, canvasHeight: number;
     this.videoElement.addEventListener('loadedmetadata', () => {
