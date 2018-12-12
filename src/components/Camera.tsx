@@ -74,14 +74,12 @@ export class Camera extends React.Component<Props, State> {
         }
       })
     } catch (e) {
-      if (e.constraint === 'facingMode' && e.name === 'OverconstrainedError') {
         try {
           if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
             audio:false,
             video: true
           })
         } catch (e) {}
-      }
     }
     if (!this.stream) return alert('カメラが有効になりませんでした');
     let canvasWidth: number, canvasHeight: number;
