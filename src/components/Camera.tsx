@@ -77,7 +77,11 @@ export class Camera extends React.Component<Props, State> {
         try {
           if (!this.stream) this.stream = await navigator.mediaDevices.getUserMedia({
             audio:false,
-            video: true
+            video: {
+              facingMode: {
+                ideal: 'environment'
+              }
+            }
           })
         } catch (e) {}
     }
